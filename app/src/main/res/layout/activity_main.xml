@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="#FEFEFE"
         android:layout_marginHorizontal="34dp"
-        android:layout_weight="3.5"
+        android:layout_weight="4.2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:text="1000 x 2 + 2 x 2"
+            android:text=""
             android:textColor="#959595"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -38,22 +38,9 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:gravity="center"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:text="="
-                android:textColor="#373737"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/result_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2004"
+                android:layout_height="70dp"
                 android:textColor="#373737"
                 android:textSize="40sp"
                 android:textStyle="bold"
@@ -67,335 +54,479 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:gravity="center"
-        android:background="#98CFFB"
-        android:layout_weight="5.5"
+        android:orientation="vertical"
+        android:background="@drawable/calculator_background"
+        android:layout_weight="5.8"
         android:layout_width="match_parent"
         android:layout_height="0dp">
-        
-        <LinearLayout
-            android:layout_marginHorizontal="12.5dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_1"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/calculator_button_background"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="1"
+                <LinearLayout
+                    android:id="@+id/button_all_clear"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="AC"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_bracket"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="15dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/button_all_clear"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="()"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_percent"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/button_bracket"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="%"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_4"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_1"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp"
+                            app:cardElevation="1dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="1"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_4"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="4"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_7"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="7"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_dote"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="."
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_2"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="2"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_5"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="5"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_8"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="8"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_0"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="0"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_3"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="3"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_6"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="6"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_9"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="9"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/button_00"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="#CEE4F9"
+                            app:cardCornerRadius="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="00"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
                 android:layout_width="70dp"
-                android:layout_height="70dp">
+                android:layout_height="match_parent"
+                android:background="@drawable/calculator_button_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:id="@+id/button_divide"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
 
-            </androidx.cardview.widget.CardView>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_7"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="÷"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:id="@+id/button_multiply"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_divide">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_0"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="×"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:id="@+id/button_minus"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_multiply">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="-"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
 
-        </LinearLayout>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginHorizontal="12.5dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:id="@+id/button_plus"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#B7DDFC"
+                    android:gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_minus">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_2"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="+"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/button_equilar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#C5E4FD"
+                    app:cardCornerRadius="200dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_5"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="="
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_8"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_00"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="00"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginHorizontal="12.5dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_3"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_6"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_9"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_equal"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="="
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginHorizontal="12.5dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_plus"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="+"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_minus"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="-"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_multiply"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="x"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/button_divide"
-                android:layout_marginVertical="20dp"
-                app:cardCornerRadius="140dp"
-                android:backgroundTint="#CEE4F9"
-                android:layout_width="70dp"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="÷"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
