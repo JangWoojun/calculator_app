@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.woojun.calculator.databinding.ActivityMainBinding
+import java.math.BigDecimal
 import java.math.BigInteger
 import java.util.Stack
 
@@ -137,12 +138,12 @@ class MainActivity : AppCompatActivity() {
         return output
     }
 
-    private fun calculatePostfix(postfix: List<String>): BigInteger {
-        val stack = Stack<BigInteger>()
+    private fun calculatePostfix(postfix: List<String>): BigDecimal {
+        val stack = Stack<BigDecimal>()
 
         for (token in postfix) {
             when {
-                isNumeric(token) -> stack.push(BigInteger(token))
+                isNumeric(token) -> stack.push(BigDecimal(token))
                 token.length == 1 && token[0] in "+-*/" -> {
                     val right = stack.pop()
                     val left = stack.pop()
@@ -150,7 +151,7 @@ class MainActivity : AppCompatActivity() {
                         '+' -> left.add(right)
                         '-' -> left.subtract(right)
                         '*' -> left.multiply(right)
-                        '/' -> left.divide(right)
+                        '/' -> left.divide(right, 8, BigDecimal.ROUND_HALF_EVEN) // 8자리 소수점, 반올림
                         else -> throw IllegalArgumentException("Unknown operator")
                     }
                     stack.push(result)
@@ -163,7 +164,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isNumeric(str: String): Boolean {
-        return str.all { it.isDigit() || it == '.' }
+        return try {
+            BigDecimal(str)
+            true
+        } catch (e: NumberFormatException) {
+            false
+        }
     }
 
     private fun getPrecedence(operator: Char): Int {
